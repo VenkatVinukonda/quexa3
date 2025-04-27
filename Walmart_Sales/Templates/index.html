@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart Sales Prediction</title>
+    <style> 
+        
+        #x{ 
+            display:inline; 
+            margin-left:530px;  
+            
+        } 
+        #y{ 
+            display:inline; 
+            margin-left:60px;  
+        } 
+        #z{ 
+            display:inline; 
+            margin-left:60px;  
+        }
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            margin: 0;
+            
+        }
+
+        .container {
+            background-color: #fff;
+            padding:40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center; 
+            margin-left: 550px; 
+            margin-top:20px;
+            
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            
+            font-size: 14px;
+            color: #333;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+            margin-top:5px;
+            padding: 10px;
+            width:100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top:10px;
+            text-align: left;
+        }
+
+       #k,#j{ 
+        display:none;
+       }
+
+       
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body> 
+  <div class="header">
+    <button id="x" onclick="document.location='/another_page1'">Holiday_impact</button>
+    <button id="y" onclick="document.location='/another_page2'">Comparitive_Analysis</button> 
+    <button id="z" onclick="document.location='/another_page3'">Trend_Analysis</button> 
+  </div>
+    <div class="container"> 
+        <h1>Walmart Sales</h1>
+        <form action="/pred" method="POST">
+            <label for="store">Store:</label>
+            <input type="text" id="store" name="store" required>
+
+            <label for="size">Size:</label>
+            <input type="text" id="size" name="size" required>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required>
+
+            <label for="temperature">Temperature:</label>
+            <input type="text" id="temperature" name="temperature" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="isHoliday">Is Holiday?</label>
+            <select id="isHoliday" name="isHoliday" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <input type="submit">
+        </form>
+
+        <div id="result">
+            <h2>Prediction Results:</h2>
+            <p id="resu"></p> 
+           
+
+            
+        </div>
+    </div>
+   <script> 
+     var res=document.getElementById("resu"); 
+     res.innerText="Predicted weekly sales for store "+{{store}}+",Dpartment "+{{department}}+"in the month of "+ 
+     {{month}}+" "+{{year}}+" is : "+{{output}}; 
+     
+
+   </script>
+    
+</body>
+</html>
